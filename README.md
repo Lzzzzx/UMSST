@@ -22,8 +22,6 @@ https://github.com/Echo-Ji/ST-SSL
 
 ## debug
 ```
-在更换数据集过程中出现问题，dataloader加载npz文件时出现错误，在np.load函数中添加（encoding='bytes', allow_pickle=True）
-但是 再加入上述属性后，仍然出现问题，OSError,查阅博客后提示需要下载git lfs
-最后确认了一下 是因为数据集只能使用git lfs clone进行下载，并且通过git lfs进行管理控制，才能正常使用
+
 ```
 
