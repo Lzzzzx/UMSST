@@ -41,23 +41,19 @@ If you find the paper useful, please cite as following:
 }
 ```
 
-## 初始代码地址
+## 主要参考代码路径
 ```
 https://github.com/Echo-Ji/ST-SSL
 ```
 
-## 自己修改增加的预训练的执行顺序
+## 
 ```
-先执行 python pre_train.py 
-随后执行 python new_trainer.py
+执行全流程指令：python UMSST.py -mode pre_train --config_filename configs/NYCBike1.yaml  -model STSSL --step_1 0 --step_2 0 --set_attenuation True
 ```
 
 
 ## debug
 ```
-在更换数据集过程中出现问题，dataloader加载npz文件时出现错误，在np.load函数中添加（encoding='bytes', allow_pickle=True）
-但是 再加入上述属性后，仍然出现问题，OSError,查阅博客后提示需要下载git lfs
-最后确认了一下 是因为数据集只能使用git lfs clone进行下载，并且通过git lfs进行管理控制，才能正常使用
 ```
 
 ## 
