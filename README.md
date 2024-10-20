@@ -49,6 +49,9 @@ https://github.com/Echo-Ji/ST-SSL
 ## 
 ```
 执行全流程指令：python UMSST.py -mode pre_train --config_filename configs/NYCBike1.yaml  -model STSSL --step_1 0 --step_2 0 --set_attenuation True
+
+执行下游任务指令：python UMSST.py -mode base --config_filename configs/NYCBike1.yaml  -model STSSL --set_attenuation False
+
 ```
 
 
