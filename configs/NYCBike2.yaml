@@ -1,0 +1,43 @@
+## global
+seed: 31
+device: cuda
+mode: train
+best_path: None 
+debug: False 
+
+## data
+data_dir: data/ST-SSL_Dataset
+dataset: NYCBike2 
+input_length: 35
+batch_size: 32
+test_batch_size: 32
+graph_file: data/ST-SSL_Dataset/NYCBike2/adj_mx.npz  # num_nodes 200 (20 x 10)
+#num_node: 200
+
+## model 
+d_input: 2                  # means inflow and outflow
+d_output: 2                 # means inflow and outflow
+d_model: 64
+dropout: 0.3
+percent: 0.1                # augumentation percentage  
+shm_temp: 0.5               # temperature for loss of spatial heterogeneity modeling  , 0.5 is best for NYCBike
+nmb_prototype: 10           # number of clusters
+yita: 0.5                   # balance for inflow loss and outflow loss, $yita * inflow + (1 - yita) * outflow$
+
+## train 
+epochs: 100
+lr_init: 0.001 
+early_stop: True
+early_stop_patience: 15
+grad_norm: True
+max_grad_norm: 5
+use_dwa: True         # whether to use dwa for loss balance
+temp: 2               # tempurature parameter in dwa, a larger T means more similer weights
+
+# attenuation func
+#set_attenuation: False   #  False True
+attenuation: inv  # log : 1 , exp : 2 , inv : 3
+attenuation_rate: 2   # log: 0.5 , 1 , 2    exp : 0.01 , 0.001 , 0.0001    inv : 0.5 , 1 , 2
+
+# subgraph
+direct: False   # whether to delete the competitive nodes
